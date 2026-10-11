@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Drop Shadow Filters -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      .glow-pulse {
+        animation: pulse 4s ease-in-out infinite alternate;
+      }
+      .orbit-spin {
+        transform-origin: 1020px 180px;
+        animation: spin 25s linear infinite;
+      }
+      .orbit-spin-reverse {
+        transform-origin: 1020px 180px;
+        animation: spinRev 35s linear infinite;
+      }
+      .node-float {
+        animation: float 6s ease-in-out infinite alternate;
+      }
+      .flow-dash {
+        stroke-dasharray: 8 6;
+        animation: dashFlow 20s linear infinite;
+      }
+      @keyframes pulse {
+        0% { opacity: 0.35; transform: scale(0.98); }
+        100% { opacity: 0.75; transform: scale(1.02); }
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes spinRev {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-8px); }
+      }
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -140; }
+      }
+    </style>
+  </defs>
+
+  <!-- Deep Canvas Background -->
+  <rect width="1200" height="360" fill="url(#bgGrad)" />
+
+  <!-- Grid overlay -->
+  <g opacity="0.08" stroke="#94a3b8" stroke-width="1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" />
+    </pattern>
+    <rect width="1200" height="360" fill="url(#grid)" />
+  </g>
+
+  <!-- Ambient background glow spots (strictly behind foreground texts) -->
+  <g class="glow-pulse">
+    <circle cx="200" cy="80" r="140" fill="#38bdf8" opacity="0.12" filter="url(#glow)"/>
+    <circle cx="1020" cy="180" r="160" fill="#818cf8" opacity="0.15" filter="url(#glow)"/>
+    <circle cx="600" cy="300" r="120" fill="#c084fc" opacity="0.08" filter="url(#glow)"/>
+  </g>
+
+  <!-- Animated ALM Lifecycle Loop Ring on the Right -->
+  <g opacity="0.85">
+    <!-- Connecting dashed cycle line -->
+    <circle cx="1020" cy="180" r="110" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.4" class="flow-dash" />
+    <circle cx="1020" cy="180" r="80" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 4" />
+
+    <!-- Outer Orbiting Phase Nodes -->
+    <g class="orbit-spin">
+      <!-- Plan -->
+      <g transform="translate(1020, 70)">
+        <circle cx="0" cy="0" r="16" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+        <text x="0" y="4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#38bdf8" text-anchor="middle">PLAN</text>
+      </g>
+      <!-- Build -->
+      <g transform="translate(1125, 145)">
+        <circle cx="0" cy="0" r="16" fill="#1e293b" stroke="#818cf8" stroke-width="2" />
+        <text x="0" y="4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#818cf8" text-anchor="middle">BUILD</text>
+      </g>
+      <!-- Test -->
+      <g transform="translate(1085, 275)">
+        <circle cx="0" cy="0" r="16" fill="#1e293b" stroke="#c084fc" stroke-width="2" />
+        <text x="0" y="4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#c084fc" text-anchor="middle">TEST</text>
+      </g>
+      <!-- Release -->
+      <g transform="translate(955, 275)">
+        <circle cx="0" cy="0" r="16" fill="#1e293b" stroke="#34d399" stroke-width="2" />
+        <text x="0" y="4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#34d399" text-anchor="middle">REL</text>
+      </g>
+      <!-- Observe -->
+      <g transform="translate(915, 145)">
+        <circle cx="0" cy="0" r="16" fill="#1e293b" stroke="#fbbf24" stroke-width="2" />
+        <text x="0" y="4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#fbbf24" text-anchor="middle">OBS</text>
+      </g>
+    </g>
+
+    <!-- Central ALM Core Icon Hub -->
+    <circle cx="1020" cy="180" r="42" fill="#0f172a" stroke="url(#cyanGlow)" stroke-width="2.5" filter="url(#shadow)" />
+    <text x="1020" y="174" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="900" fill="#f8fafc" text-anchor="middle">ALM</text>
+    <text x="1020" y="194" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#38bdf8" text-anchor="middle">LIFECYCLE</text>
+  </g>
+
+  <!-- Foreground Main Headers and Subtitles (Completely Unobscured) -->
+  <g transform="translate(80, 0)">
+    <!-- Top Pill Badge -->
+    <g transform="translate(0, 52)">
+      <rect width="250" height="28" rx="14" fill="url(#badgeGrad)" stroke="#334155" stroke-width="1.2" />
+      <circle cx="14" cy="14" r="5" fill="#10b981" />
+      <text x="28" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700" fill="#94a3b8" letter-spacing="1.2">CURATED AWESOME ECOSYSTEM</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="900" fill="url(#titleGrad)" letter-spacing="-0.5" filter="url(#shadow)">
+      Awesome ALM
+    </text>
+
+    <!-- Subtitle: Application Lifecycle Management -->
+    <text x="0" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f1f5f9" letter-spacing="0.2">
+      Application Lifecycle Management Platforms &amp; Tools
+    </text>
+
+    <!-- Description Lines -->
+    <text x="0" y="212" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="400" fill="#94a3b8">
+      Requirements Traceability • Test Management • Release Orchestration • CI/CD &amp; GitOps
+    </text>
+    <text x="0" y="238" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="400" fill="#64748b">
+      Complete commercial SaaS comparisons, pricing tiers, and open-source SDLC alternatives.
+    </text>
+
+    <!-- Feature Pills in Foreground -->
+    <g transform="translate(0, 274)">
+      <!-- Pill 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="130" height="30" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.9" />
+        <text x="65" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#38bdf8" text-anchor="middle">Requirements</text>
+      </g>
+      <!-- Pill 2 -->
+      <g transform="translate(142, 0)">
+        <rect width="130" height="30" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1" opacity="0.9" />
+        <text x="65" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#818cf8" text-anchor="middle">QA &amp; Testing</text>
+      </g>
+      <!-- Pill 3 -->
+      <g transform="translate(284, 0)">
+        <rect width="140" height="30" rx="8" fill="#1e293b" stroke="#c084fc" stroke-width="1" opacity="0.9" />
+        <text x="70" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#c084fc" text-anchor="middle">DevSecOps &amp; CI/CD</text>
+      </g>
+      <!-- Pill 4 -->
+      <g transform="translate(436, 0)">
+        <rect width="145" height="30" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1" opacity="0.9" />
+        <text x="72" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#34d399" text-anchor="middle">Self-Hosted Tools</text>
+      </g>
+    </g>
+  </g>
+</svg>
