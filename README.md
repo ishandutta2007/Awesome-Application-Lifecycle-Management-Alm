@@ -71,7 +71,7 @@ The commercial ALM ecosystem spans enterprise suites (*Polarion ALM*, *Helix ALM
 
 ## 🔓 Open-Source GitHub Projects
 
-*Sorted by GitHub Stars Count (Descending)* 🌟
+*Sorted by GitHub_Stars_Count (Descending)* 🌟
 
 - **[Plane](https://github.com/makeplane/plane)** [![Stars](https://img.shields.io/github/stars/makeplane/plane?style=social&color=white)](https://github.com/makeplane/plane/stargazers)  
   **Modern open-source project management & JIRA alternative**, Apache-2.0 licensed. Self-hostable software development tracking with issues, cycles, modules, roadmaps, views, and integrations. ✈️
@@ -128,8 +128,8 @@ The commercial ALM ecosystem spans enterprise suites (*Polarion ALM*, *Helix ALM
 Contributions are welcome! Follow these steps to submit new ALM platforms or open-source lifecycle management software:
 
 1. 🍴 **Fork** the repository.
-2. 📝 **Add/edit** entries in `README.md` maintaining table/list structure, accurate pricing figures, and verified star count ordering.
-3. 🔗 Include project title, official website/GitHub link, exact star badge, license, and brief description.
+2. 📝 **Add/edit** entries in `README.md` maintaining table/list structure, accurate pricing figures, and verified Stars_Count ordering.
+3. 🔗 Include project title, official website/GitHub link, exact Stars_Badge, license, and brief description.
 4. 🚀 Submit a **Pull Request** with a descriptive summary of your changes.
 
 ---
